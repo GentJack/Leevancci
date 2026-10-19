@@ -17,13 +17,13 @@ input,select,textarea{width:100%;padding:11px;margin:0 0 10px;border:1px solid v
 header{position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 20px}
 header .r{display:flex;gap:16px;justify-content:flex-end;flex-wrap:wrap}
 .logo{font:28px Georgia,serif;letter-spacing:.3em;text-transform:uppercase}
-.hero{min-height:60vh;background:linear-gradient(160deg,#2b2622,#6e5a46 55%,#b79a78);color:#fff;display:flex;align-items:flex-end}
+.hero{min-height:60vh;background:linear-gradient(90deg,rgba(20,16,14,.72),rgba(20,16,14,.08)),url("images/IMG_5484_Original.png") center 30%/cover no-repeat;color:#fff;display:flex;align-items:flex-end}
 .hero div{padding:40px 24px}
 .hero h1{font:400 clamp(30px,6vw,58px)/1.05 Georgia,serif;margin:0 0 12px}
 h2{font:400 24px Georgia,serif;text-align:center;margin:48px 20px 24px}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 16px;padding:0 20px 40px}
-.card .img{aspect-ratio:4/5;background:var(--soft);display:flex;align-items:center;justify-content:center}
-.card i{width:46%;aspect-ratio:3/4;border-radius:40% 40% 6% 6%/22% 22% 6% 6%}
+.card .img{aspect-ratio:4/5;background:var(--soft);overflow:hidden}
+.card .img img{width:100%;height:100%;object-fit:cover;display:block}
 .card h4{margin:10px 0 2px;font-weight:400}
 .card span,.mut{color:var(--mut)}
 .lnk,.card button{font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid currentColor}
@@ -67,7 +67,16 @@ var $=function(i){return document.getElementById(i)};
 var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
 var money=function(c){return "$"+(c/100).toFixed(2)};
 var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-var SEED=[["Wool overcoat",89000],["Knit crewneck",31000],["Tailored trousers",42000],["Silk shirt",36000],["Leather jacket",145000],["Cotton tee",9500],["Pleated skirt",38000],["Leather belt",18000]].map(function(p,i){return{id:i+1,name:p[0],price_cents:p[1],description:""}});
+var SEED=[
+ ["Embellished sneakers",89000,"IMG_5488_Original.jpeg"],
+ ["Green shoulder bag",31000,"IMG_5490_Original.jpeg"],
+ ["Two-piece swimwear",42000,"IMG_5479_Original.jpeg"],
+ ["Platform slides",36000,"IMG_5492_Original.jpeg"],
+ ["Quilted handbag",145000,"IMG_5491_Original.jpeg"],
+ ["Activewear set",38000,"IMG_5480_Original.jpeg"],
+ ["Black crossbody bag",18000,"IMG_5483_Original.jpeg"],
+ ["Gold-tone watch",9500,"IMG_5487_Original.jpeg"]
+].map(function(p,i){return{id:i+1,name:p[0],price_cents:p[1],image:p[2],description:""}});
 var S={user:null,cart:LS.get("cart",[])};
 var go=function(t){if(location.hash==t)route();else location.hash=t};
 
@@ -127,7 +136,7 @@ function authView(su){
 var V={
  home:async function(){
   var ps=await D.products();
-  $("app").innerHTML='<section class="hero"><div><h1>The Autumn Collection</h1><a class="lnk" href="#/shop">Shop now</a></div></section><h2 id="shop">New arrivals</h2><section class="grid">'+ps.map(function(p){return'<article class="card"><div class="img"><i style="background:hsl('+(p.id*47%360)+',18%,38%)"></i></div><h4>'+esc(p.name)+'</h4><span>'+money(p.price_cents)+'</span><br><button data-a="add" data-id="'+p.id+'" data-n="'+esc(p.name)+'" data-p="'+p.price_cents+'">Add to cart</button></article>'}).join("")+'</section>';
+  $("app").innerHTML='<section class="hero"><div><h1>The Autumn Collection</h1><a class="lnk" href="#/shop">Shop now</a></div></section><h2 id="shop">New arrivals</h2><section class="grid">'+ps.map(function(p){return'<article class="card"><div class="img"><img src="images/'+esc(p.image||({1:"IMG_5488_Original.jpeg",2:"IMG_5490_Original.jpeg",3:"IMG_5479_Original.jpeg",4:"IMG_5492_Original.jpeg",5:"IMG_5491_Original.jpeg",6:"IMG_5480_Original.jpeg",7:"IMG_5483_Original.jpeg",8:"IMG_5487_Original.jpeg"}[p.id]||"IMG_5488_Original.jpeg"))+'" alt="'+esc(p.name)+'" loading="lazy"></div><h4>'+esc(p.name)+'</h4><span>'+money(p.price_cents)+'</span><br><button data-a="add" data-id="'+p.id+'" data-n="'+esc(p.name)+'" data-p="'+p.price_cents+'">Add to cart</button></article>'}).join("")+'</section>';
   window.PS=ps;
  },
  shop:async function(){await V.home();$("shop").scrollIntoView()},
