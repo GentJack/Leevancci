@@ -14,7 +14,7 @@ window.LV_CONFIG = {
   /* 2. PAYSTACK — Dashboard > Settings > API Keys & Webhooks
         Paste the PUBLIC key (pk_test_... while testing, pk_live_... when live).
         The SECRET key goes in Vercel as PAYSTACK_SECRET_KEY, not here. */
-  paystackPublicKey: "",
+  paystackPublicKey: "pk_test_b9b15024b4014484c52295c2342f2657f662c775",
 
   /* 3. SHIPPING — used until the database values load (the database wins; see store_settings table) */
   freeShippingCents: 150000,   // free delivery from R1 500
