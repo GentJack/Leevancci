@@ -8,8 +8,8 @@ window.LV_CONFIG = {
   /* 1. SUPABASE  — Project Settings > API
         Paste the Project URL and the "anon / public" key.
         Leave both empty to run in DEMO mode (data is saved in the browser only). */
-  supabaseUrl: "",
-  supabaseAnonKey: "",
+  supabaseUrl: "https://eqyriouxhgaacuzptsin.supabase.co",
+  supabaseAnonKey: "sb_publishable_QhVB3YDhAk3clyAEDP-olg_7wLQyM5h",
 
   /* 2. PAYSTACK — Dashboard > Settings > API Keys & Webhooks
         Paste the PUBLIC key (pk_test_... while testing, pk_live_... when live).
@@ -25,8 +25,8 @@ window.LV_CONFIG = {
   business: {
     name: "Leevancci",
     legalName: "",            // e.g. "Leevancci (Pty) Ltd"
-    email: "",                // e.g. "hello@yourdomain.co.za"
-    phone: "",                // e.g. "+27 82 000 0000"
+    email: "",                // e.g. "Info@Leevancci.co.za"
+    phone: "",                // e.g. "+27 76 631 4762"
     whatsapp: "",             // digits only with country code, e.g. "27820000000"
     instagram: "",            // full URL, e.g. "https://instagram.com/leevancci"
     address: "",              // trading / return address
