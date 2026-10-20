@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leevancci | Performance Luxury</title>
+<meta name="description" content="Leevancci: performance luxury shoes, bags, apparel and accessories. Secure checkout in rand with Paystack.">
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Leevancci">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:title" content="Leevancci | Performance Luxury">
+<meta property="og:description" content="Performance luxury shoes, bags, apparel and accessories.">
+<meta property="og:image" content="/images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="/">
+<link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high">
+<link rel="stylesheet" href="/css/style.css">
+<noscript><style>.js-only{display:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#app">Skip to content</a>
+<div id="shell">
+  <div class="bar" id="bar" role="status"></div>
+  <header class="head" id="head">
+    <button class="menu-btn" data-a="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="/shop">Shop</a>
+      <a href="/shop?cat=Shoes">Shoes</a>
+      <a href="/shop?cat=Bags">Bags</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a class="logo" href="/" aria-label="Leevancci home">Leevancci</a>
+    <div class="head-r">
+      <span id="acct"></span>
+      <button class="cart-btn" data-a="cart" aria-label="Open cart">Cart <span id="cart-count" class="cart-n">0</span></button>
+    </div>
+  </header>
+  <main id="app" tabindex="-1" aria-live="polite"><p class="loading">Loading…</p></main>
+  <footer class="foot" id="foot"></footer>
+</div>
+
+<div class="scrim" id="scrim" data-a="close" hidden></div>
+<aside id="cart" class="drawer" aria-label="Shopping cart" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="drawer-h"><strong>Your cart</strong><button data-a="close" class="x" aria-label="Close cart">✕</button></div>
+  <div id="ship-note" class="ship-note"></div>
+  <div id="items" class="drawer-items"></div>
+  <div class="drawer-f">
+    <div class="row"><span>Subtotal</span><strong id="tot"></strong></div>
+    <p class="mut small">Shipping calculated at checkout.</p>
+    <button class="btn btn-block" data-a="checkout" id="co-btn">Checkout</button>
+  </div>
+</aside>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
